@@ -46,7 +46,7 @@ SMODS.Joker{
     key = "sample_wee",                                  --name used by the joker.    
     config = { extra = { chips = 1, chip_mod = 2 } },    --variables used for abilities and effects.
     pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 4,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    rarity = 3,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
     cost = 10,                                            --cost to buy the joker in shops.
     blueprint_compat=true,                               --does joker work with blueprint.
     eternal_compat=true,                                 --can joker be eternal.
@@ -150,4 +150,45 @@ SMODS.Joker{
             end
         end
 
-} 
+}
+SMODS.Joker{
+    key = "Nuclear_Joker",
+    atlas = "Nuclear_Joker",
+    config = {extra = {odds = 4 x_mult = 1 x_mult_plus = 0.25}},
+    pos = {x=0,y=0},
+    rarity = 3,
+    cost = 6,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    atlas = "Nuclear_Joker",
+
+    loc_vars = function(self, info_queue, card)
+            local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'Nuclear_Joker')    
+            return { vars = { card.ability.extra.x_mult,numerator, denominator }}
+    end,
+
+    calculate = function(self, card, context)
+        if context.played then
+            local debuffed_jokers = {}
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] ~= self then -- if joker is not itself 
+                    cleanable_jokers[#cleanable_jokers+1] = G.jokers.cards[i] -- add all other jokers into a array
+                end
+            end
+            local joker_to_debuff = #debuffed_jokers > 0 and pseudorandom_element(debuffed_jokers_jokers, pseudoseed('clean')) or nil
+            if joker_to_debuff then
+                SMODS.set_debuffed(joker_to_debuff)
+            end
+
+
+            card.ability.x_mult = card.ability.x_mult + card.ability.x_mult_plus,
+            if SMODS.pseudorandom_probability(card,'Nuclear_Joker', 1, card.ability.extra.odds) then
+                
+            
+            return {
+                x_mult = card.ability.x_mult
+            }
+
+}
