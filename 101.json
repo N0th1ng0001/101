@@ -3,7 +3,7 @@
   "name": "101",
   "display_name": "101",
   "author": ["Nothing"],
-  "description": "SampleJimbos mod, a base to start modding Balatro!",
+  "description": "A mod that is unbalanced",
   "prefix": "sj",
   "prefixcomment":"ABOVE PREFIX IS ADDED TO E.G. LOCALIZATION!",
   "main_file": "101.lua",
