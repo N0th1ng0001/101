@@ -29,10 +29,18 @@ return {
                         "{C:green}1 in 5{} on",
                         "last hand of round"
                     }
+                },
+            },
+            j_sj_Nuclear_Joker={
+                name = "Nuclear Joker",
+                text = {
+                    {
+                    "Whenever a hand is played, this joker gains x0.15 mult.",
+                    "When a hand is played, {C:green}1/4{} chance to debuff a random joker. "
                 }
             }
-            
-        },
+        }
+    },
     Back = {
         b_sj_2_deck ={
             name = "2 Deck",
