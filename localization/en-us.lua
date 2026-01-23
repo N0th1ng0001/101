@@ -53,7 +53,15 @@ return {
         }
     
     },
-        
+    Tarot = {
+        t_sj_deity = {
+            name = "Deity",
+            text = {
+                "Create a random",
+                "spectral card"
+            }
+       }
+    },
     misc = {
 
             -- do note that when using messages such as: 
