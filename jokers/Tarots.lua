@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "deity",
-    path = "Deity_tarot.png",
+    path = "deity_tarot.png",
     px = 71,
     py = 95
 })
@@ -9,6 +9,7 @@ SMODS.Atlas({
 SMODS.Consumable {
     key = 'deity',
     set = 'Tarot',
+    atlas = "deity",    
     pos = { x = 0, y = 0 },
     config = { extra = { spectrals = 1 } },
     loc_vars = function(self, info_queue, card)

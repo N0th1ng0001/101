@@ -49,12 +49,20 @@ return {
                 "Start a run with a deck of",
                 "only 2s and a Exponential Wee"
                 
+            },
+        },
+        b_sj_many_deck = {
+            name = "Many Deck",
+            text = {
+                "After every blind",
+                "create a negative tag",
+                "-4 joker slots"
+
             }
         }
-    
     },
     Tarot = {
-        t_sj_deity = {
+        c_sj_deity = {
             name = "Deity",
             text = {
                 "Create a random",
