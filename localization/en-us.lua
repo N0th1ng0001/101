@@ -37,9 +37,18 @@ return {
                     {
                     "Whenever a hand is played, this joker gains x0.15 mult.",
                     "When a hand is played, {C:green}1/4{} chance to debuff a random joker. "
+                    }
+                }
+            },
+            j_sj_8_of_Spades={
+                name = "8 of Spades",
+                text = {
+                    {
+                        "8^8 mult and 8 dollars",
+                        "whenever an 8 of Spades is played"
+                    }
                 }
             }
-        }
     },
     Back = {
         b_sj_2_deck ={
@@ -59,16 +68,40 @@ return {
                 "-4 joker slots"
 
             }
+        },
+        b_sj_texas_deck = {
+            name = "Texas Deck",
+            text = {
+                "Draw 2 cards",
+                "After each blind add",
+                "an eighth the total chips scored to the chip gain",
+                "{C:inactive} Currently {C:inactive} has {C:chips} #2# {C:chips} chips"
+            }
         }
     },
     Tarot = {
         c_sj_deity = {
             name = "Deity",
-            text = {
+            text = {    
                 "Create a random",
                 "spectral card"
             }
-       }
+       },
+       c_sj_disease = {
+            name = "Disease",
+            text = {
+                "Apply a Amoeba Seal",
+                "To 1 selected card"
+            }
+       },
+    },
+    Other = {
+        sj_amoeba = {
+            name = "Amoeba Seal",
+            text = {"1 in 4 chance to create",
+                    "a copy of this card"
+                    }
+        }   
     },
     misc = {
 
@@ -78,6 +111,7 @@ return {
 
 
         dictionary = {
+            k_sj_weird = "Weird",
             a_chips="+#1#",
             a_chips_minus="-#1#",
             a_hands="+#1# Hands",
@@ -89,6 +123,9 @@ return {
             a_sold_tally="#1#/#2# Sold",
             a_xmult="X#1# Mult",
             a_xmult_minus="-X#1# Mult",
+        },
+        labels = {
+            sj_weird = "Weird",
         }
     }
 }

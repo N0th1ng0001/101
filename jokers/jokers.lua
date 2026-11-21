@@ -31,6 +31,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "8_of_Spades",
+    path = "8_of_Spades.png",
+    px = 36,
+    py = 48
+})
+
+SMODS.Atlas({
     key = "unefficient_joker",
     path = "pixil-frame-0.png",
     px = 36,
@@ -201,4 +208,32 @@ SMODS.Joker{
             SMODS.debuff_card(joker_to_debuff, false, "Nuclear Joker")
         end
     end
+}
+SMODS.Joker{
+    key="8_of_Spades",
+    atlas = "8_of_Spades",
+    config = {extra = {x_mult = 8, exponent = 8, dollars = 8, suit = "Spades"}},
+    pos = {x=0,y=0},
+    rarity = "sj_weird",
+    cost = 40,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.x_mult, card.ability.extra.exponent }, key = self.key }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:get_id() == 8 then
+                if context.other_card:is_suit(card.ability.extra.suit) then
+                    return{
+                        xmult = card.ability.extra.x_mult ^ card.ability.extra.x_mult,
+                        dollars = card.ability.extra.dollars
+                    }
+                end
+            end
+        end
+    end
+                
 }
