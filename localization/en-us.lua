@@ -95,6 +95,14 @@ return {
             }
        },
     },
+    Enhanced = {
+        m_sj_scribble = {
+            name = "Scribble",
+            text = {
+                "Adds a random amount of bonus chips"
+            }
+        }
+    },
     Other = {
         sj_amoeba = {
             name = "Amoeba Seal",

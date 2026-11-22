@@ -11,7 +11,12 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
-
+SMODS.Atlas({
+    key = "pencil",
+    path = "deity_tarot.png",
+    px = 71,
+    py = 95
+})
 SMODS.Consumable {
     key = 'deity',
     set = 'Tarot',
@@ -81,5 +86,23 @@ SMODS.Consumable {
                 return true
             end
         }))
+    end
+}
+SMODS.Consumable {
+    key = 'pencil',
+    set = 'Tarot',
+    atlas = "pencil",    
+    pos = { x = 0, y = 0 },
+    config = { extra = { spectrals = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.tarots } }
+    end,
+    use = function(self, card, area, copier)
+        local aura_card = G.hand.highlighted[1]
+        aura_card:set_edition(sj_scribble, true)
+    end,
+    can_use = function(self, card)
+        return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or
+            (card.area == G.consumeables)
     end
 }
