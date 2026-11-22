@@ -48,6 +48,17 @@ return {
                         "whenever an 8 of Spades is played"
                     }
                 }
+            },
+            j_sj_Inverted_Wheel={
+                name = "Inverted Wheel",
+                text = {
+                    {
+                        "When a Wheel of Fortune is used,",
+                        "set a random joker to negative.",
+                        "When an Aura is used,",
+                        "set the card to negative"
+                    }
+                }
             }
     },
     Back = {

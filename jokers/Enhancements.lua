@@ -1,8 +1,8 @@
 SMODS.Atlas {
     key = "scribble",
     path = "Scribble_Enhancement.png",
-    px=71,
-    py=95
+    px=36,
+    py=48
 }
 SMODS.Enhancement {
     key = 'scribble',

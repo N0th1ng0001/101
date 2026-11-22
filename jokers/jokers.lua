@@ -55,6 +55,13 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
+SMODS.Atlas({
+    key = "Inverted_Wheel",
+    path = "Inverted_Wheel.png",
+    px = 36,
+    py = 48
+})
+
 SMODS.Joker{
     key = "sample_wee",                                  --name used by the joker.    
     config = { extra = { chips = 1, chip_mod = 2 } },    --variables used for abilities and effects.
@@ -236,4 +243,33 @@ SMODS.Joker{
         end
     end
                 
+}
+SMODS.Joker{
+    key="Inverted_Wheel",
+    atlas = "Inverted_Wheel",
+    config = {},
+    pos = {x=0,y=0},
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = false,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true, 
+    calculate = function(self, card, context)
+        if context.using_consumeable and not context.blueprint and context.consumeable.config.center.key == "c_aura" then
+            local eligible_card = G.hand.highlighted[1]
+            G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 1,
+            func = function()
+                eligible_card:set_edition("e_negative", false, nil, nil, true)
+                return true
+            end
+            }))
+        end
+        if context.using_consumeable and not context.blueprint and context.consumeable.config.center.key == "c_wheel_of_fortune" then
+            local eligible_card = pseudorandom_element(G.jokers.cards, 'sj_Inverted_Wheel')
+            eligible_card:set_edition("e_negative", false, nil, nil, true)
+        end
+    end
 }
